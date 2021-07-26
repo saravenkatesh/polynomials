@@ -11,7 +11,7 @@ not actually asserting robust correct behavior or checking for edge cases.
 Remember to run pytest with the -s flag to view print statements."""
 
 Poly0 = Polynomial({})
-Poly1 = Polynomial({(1, 2, 3):Fraction(-5, 1), (3, 1, 5): Fraction(-7, 1)})
+Poly1 = Polynomial({(1, 2, 3):Fraction(-5, 1), (3, 1, 5): Fraction(-7, 8)})
 Poly2 = Polynomial({(1, 2, 3):Fraction(5, 1), (2, 1, 1):Fraction(1, 1)})
 Poly3 = Polynomial({(2, 2, 7): Fraction(5, 1)})
 Poly4 = Polynomial({(1, 1, 0):1, (0, 3, 0): 2, (0, 0, 0): -1})
@@ -39,7 +39,11 @@ def test_buchberger():
         print(poly.data)
 
 def test_ideal_mem():
-    print(ideal_membership(Poly4, [Poly4, Poly5]))
-    print(ideal_membership(Poly7, [Poly4, Poly5]))
-    print(ideal_membership(Poly10, [Poly4, Poly5]))
-    print(ideal_membership(Poly11, [Poly4, Poly5]))
+    assert ideal_membership(Poly0, [Poly4, Poly5])
+    assert ideal_membership(Poly4, [Poly4, Poly5])
+    assert ideal_membership(Poly7, [Poly4, Poly5])
+    assert ideal_membership(Poly10, [Poly4, Poly5])
+    assert not ideal_membership(Poly11, [Poly4, Poly5])
+
+    assert ideal_membership(Poly1, [Poly1, Poly4, Poly5]) 
+    assert ideal_membership(Poly10, [Poly1, Poly4, Poly5]) 
