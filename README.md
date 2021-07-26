@@ -1,6 +1,6 @@
 # Polynomials
 
-Polynomials is a package implementing the Buchberger algorithm for polynomials in 3 variables with fractional coefficients.
+Polynomials is a package implementing the [Buchberger algorithm](https://en.wikipedia.org/wiki/Buchberger%27s_algorithm) for polynomials in 3 variables with fractional coefficients.
 
 
 ## Setup
