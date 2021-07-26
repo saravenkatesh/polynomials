@@ -107,14 +107,3 @@ def reduction(Poly, Poly_set):
         return reduction(Reduced_poly, Poly_set)
     else:
         return Reduced_poly
-
-def poly_sort(Poly_set):
-    """Returns a sorted list of polynomials.
-    
-    Arguments:
-    Poly_set -- a list of Polynomial instances.
-    
-    Returns:
-    Poly_set -- sorted by lexicographic ordering."""
-
-    Poly_set.sort(key=lambda x: x.leading_monomial)
